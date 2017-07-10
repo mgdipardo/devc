@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Weather Journal</title>
+
+    <!--CSS for jQuery UI-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!--CDN for jQuery and jQuery UI-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="../css/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top wd-padding-left-15px wj-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="">
+                <a href="../home.html" class="navbar-link wd-navbar-back pull-left">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="navbar-brand" href="../home.html">
+                    Analytics
+                </a>
+                <p class="navbar-text pull-right">
+                    <a href="../home.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-ok">
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <!-- Tab pills -->
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation"
+                class="active">
+                <a href=""
+                    aria-controls="hotSpells"
+                    role="tab" data-toggle="tab">
+                    Hot Spell
+                </a>
+            </li>
+            <li role="presentation">
+                <a href=""
+                    aria-controls="coldSpells"
+                    role="tab"
+                    data-toggle="tab">
+                    Cold Spell
+                </a>
+            </li>
+            <li role="presentation">
+                <a href=""
+                    aria-controls="wetSpells"
+                    role="tab"
+                    data-toggle="tab">
+                    Wet Spell
+                </a>
+            </li>
+        </ul>
+        <!-- Tab pill panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="hotSpells">...</div>
+            <div role="tabpanel" class="tab-pane" id="coldSpells">...</div>
+            <div role="tabpanel" class="tab-pane" id="wetSpells">...</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="">
+                        At or above: <b>100</b>
+                    </div>
+                    <div class="">
+                        Duration: <b>Greater than 1 day</b>
+                    </div>
+                    <div class="">
+                        Span: <b>August-September, 2017</b>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="month">
+        <ul>
+            August 2017
+        </ul>
+    </div>
+
+    <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
+
+    <ul class="days">
+        <li></li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span class="hotspell">10</span></li>
+        <li><span class="hotspell">11</span></li>
+        <li><span class="hotspell">12</span></li>
+        <li><span class="hotspell">13</span></li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li><span class="hotspell">18</span></li>
+        <li><span class="hotspell">19</span></li>
+        <li>20</li>
+        <li>21</li>
+        <li><span class="hotspell">22</span></li>
+        <li><span class="hotspell">23</span></li>
+        <li><span class="hotspell">24</span></li>
+        <li><span class="hotspell">25</span></li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+    </ul>
+</div>
+
+<div class="container-fluid">
+    <div class="month">
+        <ul>
+            September 2017
+        </ul>
+    </div>
+
+    <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
+
+    <ul class="days">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span class="hotspell">10</span></li>
+        <li><span class="hotspell">11</span></li>
+        <li><span class="hotspell">12</span></li>
+        <li><span class="hotspell">13</span></li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li><span class="hotspell">18</span></li>
+        <li><span class="hotspell">19</span></li>
+        <li>20</li>
+        <li>21</li>
+        <li><span class="hotspell">22</span></li>
+        <li><span class="hotspell">23</span></li>
+        <li><span class="hotspell">24</span></li>
+        <li><span class="hotspell">25</span></li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="section group wj-footer-vertical-center">
+            <div class="col span_1_of_6">
+                <a href="../home.html">
+                    <span
+                        class="glyphicon glyphicon-home wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../location/location-list.html">
+                    <span
+                        class="glyphicon glyphicon-globe wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../station/station-list.html">
+                    <span
+                        class="glyphicon glyphicon-cloud wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../journal/journal-list.html">
+                    <span
+                        class="glyphicon glyphicon-book wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../history/history-list.html">
+                    <span
+                        class="glyphicon glyphicon-list-alt wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../analytic/analytic-list.html">
+                    <span
+                        class="glyphicon glyphicon-stats wj-theme">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

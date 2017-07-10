@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Weather Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top wj-theme">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 hidden-xs">
+                <a href="location-list.html" class="navbar-link wd-navbar-back pull-left">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="navbar-brand" href="#">
+                    Stations
+                </a>
+                <p class="navbar-text pull-right">
+                    <a href="station-new.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-plus">
+                        </span>
+                    </a>
+            </div>
+            <div class="col-sm-8 col-xs-12">
+                <a href="station-list.html" class="navbar-link wd-navbar-back pull-left visible-xs">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <p class="navbar-text pull-left">New Station</p>
+                <p class="navbar-text pull-right">
+                    <a href="station-list.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-ok ">
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 hidden-xs">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
+                            <a href="../journal/journal-list.html">SDTEC</a>
+                        </div>
+                        <div class ="col-lg-3 visible-lg">
+                            Lat: 33.4647°N Lon: 117.0955°W
+                        </div>
+                        <div class = "col-md-3 hidden-sm hidden-xs" >
+                            Elev: 1190ft.
+                        </div>
+                        <div class="col-xs-1">
+                            <a href="station-edit.html">
+                                <span class="glyphicon glyphicon-pencil pull-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
+                            <a href="../journal/journal-list.html">KF70</a>
+                        </div>
+                        <div class ="col-lg-3 visible-lg">
+                            Lat: 33.57453°N Lon: 117.12804°W
+                        </div>
+                        <div class = "col-md-3 hidden-sm hidden-xs" >
+                            Elev: 1350ft.
+                        </div>
+                        <div class="col-xs-1">
+                            <a href="station-edit.html">
+                                <span class="glyphicon glyphicon-pencil pull-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <label for="station">Station</label>
+            <input id="station"
+                placeholder="LAX"
+                class="form-control"/>
+            <label for="coordinate">Coordinate</label>
+            <input id="coordinate"
+                placeholder="Lat: 33.57453°N Lon: 117.12804°W"
+                class="form-control"/>
+            <label for="elevation">Elevation</label>
+            <input id="elevation"
+                placeholder="189ft."
+                class="form-control"/>
+            <a href="station-list.html" class="btn btn-block btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="section group wj-footer-vertical-center">
+            <div class="col span_1_of_6">
+                <a href="../home.html">
+                    <span
+                        class="glyphicon glyphicon-home wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../location/location-list.html">
+                    <span
+                        class="glyphicon glyphicon-globe wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../station/station-list.html">
+                    <span
+                        class="glyphicon glyphicon-cloud wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../journal/journal-list.html">
+                    <span
+                        class="glyphicon glyphicon-book wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../history/history-list.html">
+                    <span
+                        class="glyphicon glyphicon-list-alt wj-theme">
+                    </span>
+                </a>
+            </div>
+            <div class="col span_1_of_6">
+                <a href="../analytic/analytic-list.html">
+                    <span
+                        class="glyphicon glyphicon-stats wj-theme">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

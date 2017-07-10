@@ -1,0 +1,286 @@
+/**********************************************************/
+/* From Samuel Marchal at work.smarchal.com/twbscolor/css */
+/**********************************************************/
+/* burgundy and blue */
+
+.navbar-default {
+  background-color: #b23850;
+  border-color: #3b8beb;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #b23850;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-toggle {
+  border-color: #3b8beb;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #3b8beb;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #3b8beb;
+  }
+}
+/**********************************************************/
+/* End Samuel Marchal at work.smarchal.com/twbscolor/css  */
+/**********************************************************/
+
+
+/****************************************/
+/* Start Weather Journal specific css   */
+/****************************************/
+
+/* Gives the picture small border */
+img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+/* Give all form fields 5 pixel gap between each field */
+input.form-control,
+textarea,
+select{
+    margin-bottom: 5px;
+}
+
+/* Pad the top and bottom to allow scrolling with the fixed navar */
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Align the chevron icon for "back" actions pretty */
+.wd-navbar-back{
+    padding-right: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.wd-padding-left-15px{
+    padding-left: 15px;
+}
+/* The color: white gives the "Edit" */
+/* type portrait pages white text.   */
+.wj-theme {
+    color: #ffffff;
+}
+
+.wj-center-form-entry {
+    text-align: center;
+}
+
+.wj-copyright {
+    font-size:70%;
+}
+
+/****************************************/
+/* End Weather Journal specific css     */
+/****************************************/
+
+
+/*******************/
+/* Calendar Styles */
+/*******************/
+
+/* Month header */
+.month {
+    padding: 10px 10px;
+    width: 100%;
+    background: #006dcc;
+}
+
+.month ul {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    margin: 0;
+    padding: 8px 0;
+    background-color:#ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 12.6%;
+    color: #666;
+    text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 12.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color:#777;
+}
+
+/* Highlight the "spell" days */
+.days li .hotspell {
+    padding: 5px;
+    background: #FF6E33;
+    color: white !important
+}
+/*******************/
+/* End Calendar    */
+/*******************/
+
+
+
+/*********************/
+/* Start Footer Grid */
+/*********************/
+/* From http://www.responsivegridsystem.com/calculator/  */
+/*    by Graham Miller (see my personal web site Graham  */
+/*    Robertson Miller) and is licensed under a Creative */
+/*    Commons Attribution 3.0 License.                   */
+/* It had some bugs that I neeeded to fix.               */
+
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+
+/*  GRID OF SIX  */
+.span_6_of_6 {
+	width: 100%;
+}
+
+.span_5_of_6 {
+  	width: 83.06%;
+}
+
+.span_4_of_6 {
+  	width: 66.13%;
+}
+
+.span_3_of_6 {
+  	width: 49.2%;
+}
+
+.span_2_of_6 {
+  	width: 32.26%;
+}
+
+.span_1_of_6 {
+  	width: 15.13%;
+}
+
+/*  GO FULL WIDTH BELOW 250 PIXELS */
+@media only screen and (max-width: 250px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_6, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6 { width: 100%; }
+}
+
+/* Vertically center icons in footer*/
+/* TODO
+   This does not work perfectly. As the browser is extened width-wide, the
+   icons drift down.
+*/
+.wj-footer-vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(30%);
+}
