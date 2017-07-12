@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Weather Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
+    <div class="container-fluid">
+        <div class="navbar-header wj-navbar-header">
+            <a href="../setting.html" class="navbar-link pull-left wj-navbar-back">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="navbar-brand" href="register.html">
+                Settings
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="../home.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok ">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <label for="defaultLocation">Default Location</label>
+    <select id="defaultLocation"
+        class="form-control">
+        <option>El Paso</option>
+        <option>Temecula</option>
+    </select>
+    <label for="defaultStation">Default Station</label>
+    <select id="defaultStation"
+        class="form-control">
+        <option>KF70</option>
+        <option>SDTEC</option>
+    </select>
+    <label for="startDate">Start Date</label>
+    <select id="startDate"
+        class="form-control">
+        <option>Current Date minus 1</option>
+        <option>Current Date minus 2</option>
+    </select>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="section group wj-footer-vertical-center">
+            <div class="col span_1_of_6">
+                <a href="../home.html">
+                    <span
+                        class="glyphicon glyphicon-home wj-theme">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

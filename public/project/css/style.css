@@ -12,7 +12,7 @@
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #ffffff;
+  color: #e7e3d4;
 }
 .navbar-default .navbar-text {
   color: #ffffff;
@@ -22,7 +22,7 @@
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #e7e3d4;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background-color: #b23850;
@@ -32,7 +32,7 @@
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #ffffff;
+  color: #e7e3d4;
   background-color: #3b8beb;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
@@ -41,19 +41,19 @@
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-  color: #ffffff;
+  color: #e7e3d4;
   background-color: #3b8beb;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffffff;
+  color: #e7e3d4;
   background-color: #3b8beb;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #ffffff;
+  color: #e7e3d4;
   background-color: #3b8beb;
 }
 .navbar-default .navbar-toggle {
@@ -74,7 +74,7 @@
   color: #ffffff;
 }
 .navbar-default .navbar-link:hover {
-  color: #ffffff;
+  color: #e7e3d4;
 }
 
 @media (max-width: 767px) {
@@ -83,12 +83,12 @@
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #ffffff;
+    color: #e7e3d4;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #ffffff;
+    color: #e7e3d4;
     background-color: #3b8beb;
   }
 }
@@ -101,17 +101,10 @@
 /* Start Weather Journal specific css   */
 /****************************************/
 
-/* Gives the picture small border */
-img {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-}
-
 /* Give all form fields 5 pixel gap between each field */
 input.form-control,
-textarea,
-select{
+textarea.form-control,
+select.form-control {
     margin-bottom: 5px;
 }
 
@@ -121,14 +114,22 @@ body {
     padding-bottom: 60px;
 }
 
+/* Makes the header stretch all the way across the display, thus */
+/* allowing the right most icon on the screens to be in the far  */
+/* right corner.                                                 */
+.wj-navbar-header {
+    width: 100%;
+}
+
 /* Align the chevron icon for "back" actions pretty */
-.wd-navbar-back{
+.wj-navbar-back{
     padding-right: 5px;
     padding-bottom: 15px;
     padding-top: 15px;
 }
 
-.wd-padding-left-15px{
+/* Provides a bit of padding on the "list" pages */
+.wj-padding-left-15px{
     padding-left: 15px;
 }
 /* The color: white gives the "Edit" */
@@ -137,12 +138,23 @@ body {
     color: #ffffff;
 }
 
+/* Input fields are aligned in the center */
 .wj-center-form-entry {
     text-align: center;
 }
-
+/* Copyright font is shrunk*/
 .wj-copyright {
     font-size:70%;
+}
+
+/* Gives the picture a small border and keeps the      */
+/* image a reasonable size as the viewwer gets bigger. */
+/* TODO this does not center the image.*/
+.wj-img-wrapper {
+    width:50%0%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 /****************************************/
