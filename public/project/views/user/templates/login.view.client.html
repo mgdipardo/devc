@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
-            <a href="../home.html" class="navbar-link pull-left wj-navbar-back">
+            <a href="#!/" class="navbar-link pull-left wj-navbar-back">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <a class="navbar-brand" href="login.html">
@@ -22,24 +11,31 @@
     </div>
 </nav>
 
+<div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+
 <div class="container-fluid">
+    <label for="username">Username</label>
     <input type="text"
-           class="form-control"
-           placeholder="username"/>
+        ng-model="username"
+        class="form-control"
+        placeholder="username"/>
+    <label for="password">Password</label>
     <input type="password"
-           class="form-control"
-           placeholder="password"/>
+        ng-model="password"
+        class="form-control"
+        placeholder="password"/>
+
     <a class="btn btn-primary btn-block"
-       href="../home.html">Login</a>
+       ng-click="model.login(username,password)">Login</a>
     <a class="btn btn-primary btn-block"
-       href="register.html">Register</a>
+       href="#!/register">Register</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="section group wj-footer-vertical-center">
             <div class="col span_1_of_6">
-                <a href="../home.html">
+                <a href="#!/">
                     <span
                         class="glyphicon glyphicon-home wj-theme">
                     </span>
@@ -48,5 +44,3 @@
         </div>
     </div>
 </nav>
-</body>
-</html>

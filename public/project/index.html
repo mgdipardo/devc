@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WeatherJournal">
 <head>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--CSS for jQuery UI-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!--CDN for jQuery and jQuery UI-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!--CDN for Angular JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script
+
+    <!--CDN for Angular routing-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+
+    <!-- CDN for Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- CDN for Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--Stylesheets-->
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <!--App and Configuration routing-->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="views/user/user-config.js"></script>
+
+    <!--Controllers-->
+    <!--user-->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <script src="views/user/controllers/setting.controller.client.js"></script>
+    <!--location-->
+    <!-- <script src="views/website/website-list.controller.client.js"></script>
+    <script src="views/website/website-new.controller.client.js"></script>
+    <script src="views/website/website-edit.controller.client.js"></script> -->
+    <!--station-->
+    <!-- <script src="views/page/page-list.controller.client.js"></script>
+    <script src="views/page/page-new.controller.client.js"></script>
+    <script src="views/page/page-edit.controller.client.js"></script> -->
+    <!--journal-->
+    <!-- <script src="views/widget/widget-list.controller.client.js"></script>
+    <script src="views/widget/widget-new.controller.client.js"></script>
+    <script src="views/widget/widget-edit.controller.client.js"></script> -->
+    <!--history-->
+    <!--analytic-->
+
+    <!--Services-->
+    <script src="services/user.service.client.js"></script>
+    <!-- <script src="services/website.service.client.js"></script>
+    <script src="services/page.service.client.js"></script>
+    <script src="services/widget.service.client.js"></script> -->
+
+    <title>Weather Journal</title>
 </head>
 <body>
-    <h1>Project Home Page</h1>
+    <div ng-view ></div>
 </body>
 </html>

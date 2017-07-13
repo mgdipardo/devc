@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
-            <a href="../home.html" class="navbar-link pull-left wj-navbar-back">
+            <a href="#!/" class="navbar-link pull-left wj-navbar-back">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <a class="navbar-brand" href="register.html">
@@ -22,27 +11,37 @@
     </div>
 </nav>
 
+<div ng-show="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
 <div class="container-fluid">
+    <label for="username">Username</label>
     <input type="text"
-           class="form-control"
-           placeholder="username"/>
+        ng-model="username"
+        class="form-control"
+        placeholder="username"/>
+    <label for="password">Password</label>
     <input type="password"
-           class="form-control"
-           placeholder="password"/>
+        ng-model="password"
+        class="form-control"
+        placeholder="password"/>
+    <label for="verifyPassword">Verify Password</label>
     <input type="password"
-           class="form-control"
-           placeholder="verify password"/>
+        ng-model="verifyPassword"
+        class="form-control"
+        placeholder="verify password"/>
     <a class="btn btn-primary btn-block"
-       href="../home.html">Register</a>
+        ng-click="model.register(username,password,verifyPassword)">Register</a>
     <a class="btn btn-danger btn-block"
-       href="login.html">Cancel</a>
+        href="#!/login">Cancel</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="section group wj-footer-vertical-center">
             <div class="col span_1_of_6">
-                <a href="../home.html">
+                <a href="#!/">
                     <span
                         class="glyphicon glyphicon-home wj-theme">
                     </span>
@@ -51,5 +50,3 @@
         </div>
     </div>
 </nav>
-</body>
-</html>
