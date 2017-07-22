@@ -1,41 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Weather Journal</title>
-
-    <!--CSS for jQuery UI-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-    <!--CDN for jQuery and jQuery UI-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <link href="../css/style.css" rel="stylesheet"/>
-
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
             <div class="">
-                <a href="../home.html" class="navbar-link wj-navbar-back pull-left">
+                <a href="#!/" class="navbar-link wj-navbar-back pull-left">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="navbar-brand" href="../home.html">
+                <a class="navbar-brand" href="#!/">
                     History
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="../home.html" class="navbar-link">
+                    <a href="#!/" class="navbar-link">
                         <span class="glyphicon glyphicon-ok">
                         </span>
                     </a>
@@ -53,7 +27,8 @@
                 class="active">
                 <a href=""
                     aria-controls="thisDate"
-                    role="tab" data-toggle="tab">
+                    role="tab"
+                    data-toggle="tab">
                     This Date
                 </a>
             </li>
@@ -76,9 +51,9 @@
         </ul>
         <!-- Tab pill panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="thisDate">...</div>
-            <div role="tabpanel" class="tab-pane" id="last30Days">...</div>
-            <div role="tabpanel" class="tab-pane" id="last60Days">...</div>
+            <div role="tabpanel" class="tab-pane active" id="thisDate"></div>
+            <div role="tabpanel" class="tab-pane" id="last30Days"></div>
+            <div role="tabpanel" class="tab-pane" id="last60Days"></div>
         </div>
     </div>
 </div>
@@ -86,79 +61,23 @@
 <div class="container-fluid">
     <div class="">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="history in model.histories"
+                class="list-group-item">
                 <div class="row">
                     <div class="">
-                        <b>07/13/2017</b>
+                        <b>{{history.historyDate}}</b>
                     </div>
                     <div class="">
-                        High: <b>105.9 2:10pm</b>
+                        High Temp: <b>{{history.highTemp}}</b>
                     </div>
-                    <div class="">
-                        Low: <b>75.2 5:44am</b>
+                    <div class="" >
+                        Low Temp: <b>{{history.lowTemp}}</b>
                     </div>
-                    <div class="">
-                        Precipation: <b>0.0</b>
+                    <div class="" >
+                        Precipation: <b>{{history.precipation}}</b>
                     </div>
-                    <div class="">
-                        High wind: <b>18 mph SW 6:22pm</b>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="">
-                        <b>07/13/2016</b>
-                    </div>
-                    <div class="">
-                        High: <b>85.9 2:15pm</b>
-                    </div>
-                    <div class="">
-                        Low: <b>59.2 5:43am</b>
-                    </div>
-                    <div class="">
-                        Precipation: <b>0.0</b>
-                    </div>
-                    <div class="">
-                        High wind: <b>22 mph SW 5:51pm</b>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="">
-                        <b>07/13/2015</b>
-                    </div>
-                    <div class="">
-                        High: <b>92.9 2:45pm</b>
-                    </div>
-                    <div class="">
-                        Low: <b>66.2 5:53am</b>
-                    </div>
-                    <div class="">
-                        Precipation: <b>0.0</b>
-                    </div>
-                    <div class="">
-                        High wind: <b>21 mph SW 5:59pm</b>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="">
-                        <b>07/13/2014</b>
-                    </div>
-                    <div class="">
-                        High: <b>6.9 2:55pm</b>
-                    </div>
-                    <div class="">
-                        Low: <b>70.2 5:59am</b>
-                    </div>
-                    <div class="">
-                        Precipation: <b>0.0</b>
-                    </div>
-                    <div class="">
-                        High wind: <b>19 mph SW 6:15pm</b>
+                    <div class="" >
+                        High Wind: <b>{{history.highWind}}</b>
                     </div>
                 </div>
             </li>
@@ -214,6 +133,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
-            <a href="../location/location-list.html" class="navbar-link pull-left wj-navbar-back">
+            <a href="#!/user/{{model.userId}}/location"
+                class="navbar-link pull-left wj-navbar-back">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand"
+                href="#!/user/{{model.userId}}/location">
                 Stations
             </a>
             <p class="navbar-text pull-right">
-                <a href="station-new.html" class="navbar-link">
+                <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/new"
+                    class="navbar-link">
                     <span class="glyphicon glyphicon-plus">
                     </span>
                 </a>
@@ -35,10 +27,10 @@
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
                     Weather Station Name
                 </div>
-                <div class ="col-lg-3 visible-lg">
+                <div class="col-lg-3 visible-lg">
                     Geolocation Coordinates
                 </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
+                <div class="col-md-3 hidden-sm hidden-xs" >
                     Elevation
                 </div>
                 <div class="col-xs-1">
@@ -47,41 +39,22 @@
                 </div>
             </div>
         </li>
-        <li class="list-group-item">
+        <li ng-repeat="station in model.stations"
+            class="list-group-item">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
-                    <a href="../journal/journal-list.html">
-                        SDTEC
+                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{station._id}}/journal">
+                        {{station.stationName}}
                     </a>
                 </div>
-                <div class ="col-lg-3 visible-lg">
-                    <b>Lat: 33.4647°N Lon: 117.0955°W</b>
+                <div class="col-lg-3 visible-lg">
+                    <b>{{station.coordinate}}</b>
                 </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
-                    <b>Elev: 1190ft.</b>
+                <div class="col-md-3 hidden-sm hidden-xs" >
+                    <b>{{station.elevation}}</b>
                 </div>
                 <div class="col-xs-1">
-                    <a href="station-edit.html">
-                        <span class="glyphicon glyphicon-pencil pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
-                    <a href="../journal/journal-list.html">
-                        KF70
-                    </a>
-                </div>
-                <div class ="col-lg-3 visible-lg">
-                    <b>Lat: 33.57453°N Lon: 117.12804°W</b>
-                </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
-                    <b>Elev: 1350ft.</b>
-                </div>
-                <div class="col-xs-1">
-                    <a href="station-edit.html">
+                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{station._id}}">
                         <span class="glyphicon glyphicon-pencil pull-right"></span>
                     </a>
                 </div>
@@ -138,6 +111,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

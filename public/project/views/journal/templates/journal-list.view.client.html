@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
-            <a href="../station/station-list.html" class="navbar-link pull-left wj-navbar-back">
+            <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station"
+                class="navbar-link pull-left wj-navbar-back">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a class="navbar-brand" href="../station/station-list.html">
+            <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station"
+                class="navbar-brand">
                 Journals
             </a>
             <p class="navbar-text pull-right">
-                <a href="journal-new.html" class="navbar-link">
+                <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal/new"
+                    class="navbar-link">
                     <span class="glyphicon glyphicon-plus">
                     </span>
                 </a>
@@ -35,10 +27,10 @@
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
                     Journal Time Stamp
                 </div>
-                <div class ="col-lg-3 visible-lg">
+                <div class="col-lg-3 visible-lg">
                     Journal Topic
                 </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
+                <div class="col-md-3 hidden-sm hidden-xs" >
                     Journal Entry
                 </div>
                 <div class="col-xs-1">
@@ -47,37 +39,20 @@
                 </div>
             </div>
         </li>
-        <li class="list-group-item">
+        <li ng-repeat="journal in model.journals"
+            class="list-group-item">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
-                    <b>07/13/2017 10:01am</b>
+                    <b>{{journal.journalTimeStamp}}</b>
                 </div>
-                <div class ="col-lg-3 visible-lg">
-                    <b>Not as warm as predicted</b>
+                <div class="col-lg-3 visible-lg">
+                    <b>{{journal.topic}}</b>
                 </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
-                    <b>Forecast was for 103, but it only made it to 98</b>
-                </div>
-                <div class="col-xs-1">
-                    <a href="journal-edit.html">
-                        <span class="glyphicon glyphicon-pencil pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
-                    <b>04/12/2017 6:14pm</b>
-                </div>
-                <div class ="col-lg-3 visible-lg">
-                    <b>Rain off and on in am
-                </div>
-                <div class = "col-md-3 hidden-sm hidden-xs" >
-                    <b>The only rain was starts and stops very lightly in the mornin</b>g
+                <div class="col-md-3 hidden-sm hidden-xs" >
+                    <b>{{journal.entry}}</b>
                 </div>
                 <div class="col-xs-1">
-                    <a href="journal-edit.html">
+                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal/{{journal._id}}">
                         <span class="glyphicon glyphicon-pencil pull-right"></span>
                     </a>
                 </div>
@@ -134,6 +109,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

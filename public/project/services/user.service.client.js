@@ -19,25 +19,31 @@
         };
         return api;
 
-        function updateUser(userId,user){
-            for (var u in users){
-                if(users[u]._id===userId){
-                    users[u].username = user.username;
-                    users[u].password = user.password;
-                    users[u].firstName = user.firstName;
-                    users[u].lastName = user.lastName;
-                    users[u].defaultLocation = user.defaultLocation;
-                    users[u].defaultStation = user.defaultStation;
-                    users[u].startDate = user.startDate;
+        function updateUser(userId, user){
+            var index = null;
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    index = u;
+                    break;
                 }
             }
+
+            if(index !== null) {
+                users.splice(index, 1);
+                users.push(user);
+                return true;
+            }
+            return false;
         }
 
         function createUser(user) {
-            user._id = (new Date()).getTime() + "";
-            user.created = new Date();
-            users.push(user);
-            return user;
+            if(findUserByUserId(user._id) === null) {
+                user._id = ""+Math.floor((Math.random() * 100) + 1);
+                user.created = new Date();
+                users.push(user);
+                return user;
+            }
+            return null;
         }
 
         function findUserByUsername(username) {
@@ -52,7 +58,7 @@
 
         function findUserByUserId(userId) {
             for(var u in users){
-                if(users[u]._id==userId){
+                if(users[u]._id === userId){
                     return users[u];
                 }
             }
@@ -60,16 +66,28 @@
         }
 
         function findUserByCredentials(username,password) {
-            var found = null;
             for (u in users) {
                 var user = users[u];
-                if (user.username === username
-                    && user.password === password) {
-                    found = user;
-                    return found;
+                if (user.username === username &&
+                    user.password === password) {
+                    return user;
                 }
             }
-            return found;
+            return null;
+        }
+
+        function deleteUser(userId) {
+            var index = null;
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    index = u;
+                    break;
+                }
+            }
+
+            if(index !== null) {
+                users.splice(index, 1);
+            }
         }
     }
 })();

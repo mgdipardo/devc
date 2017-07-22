@@ -1,37 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-theme">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 hidden-xs">
-                <a href="../station/station-list.html" class="navbar-link wj-navbar-back pull-left">
+                <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station"
+                    class="navbar-link wj-navbar-back pull-left">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="navbar-brand" href="../station/station-list.html">
+                <a class="navbar-brand"
+                    href="#!/user/{{model.userId}}/location/{{model.locationId}}/station">
                     Journals
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="journal-new.html" class="navbar-link">
+                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal/new"
+                        class="navbar-link">
                         <span class="glyphicon glyphicon-plus">
                         </span>
                     </a>
+                </p>
             </div>
             <div class="col-sm-8 col-xs-12">
-                <a href="journal-list.html" class="navbar-link wj-navbar-back pull-left visible-xs">
+                <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal"
+                    class="navbar-link wj-navbar-back pull-left visible-xs">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <p class="navbar-text pull-left">New Journal</p>
+                <p class="navbar-text pull-left">
+                    New Journal
+                </p>
                 <p class="navbar-text pull-right">
-                    <a href="journal-list.html" class="navbar-link">
+                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal"
+                        class="navbar-link">
                         <span class="glyphicon glyphicon-ok">
                         </span>
                     </a>
@@ -45,37 +42,37 @@
     <div class="row">
         <div class="col-xs-4 hidden-xs">
             <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item active">
                     <div class="row">
                         <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
-                            07/13/2017 10:01am
+                            Journal Time Stamp
                         </div>
                         <div class ="col-lg-3 visible-lg">
-                            Not as warm as predicted
+                            Journal Topic
                         </div>
                         <div class = "col-md-3 hidden-sm hidden-xs" >
-                            Forecast was for 103, but it only made it to 98
+                            Journal Entry
                         </div>
                         <div class="col-xs-1">
-                            <a href="journal-edit.html">
-                                <span class="glyphicon glyphicon-pencil pull-right"></span>
+                            <a href="">
                             </a>
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
+                <li ng-repeat="journal in model.journals"
+                    class="list-group-item">
                     <div class="row">
-                        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
-                            04/12/2017 6:14pm
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
+                            <b>{{journal.journalTimeStamp}}</b>
                         </div>
-                        <div class ="col-lg-3 visible-lg">
-                            Rain off and on in am
+                        <div class="col-lg-3 visible-lg">
+                            <b>{{journal.topic}}</b>
                         </div>
-                        <div class = "col-md-3 hidden-sm hidden-xs" >
-                            The only rain was starts and stops very lightly in the mornin
+                        <div class="col-md-3 hidden-sm hidden-xs" >
+                            <b>{{journal.entry}}</b>
                         </div>
                         <div class="col-xs-1">
-                            <a href="journal-edit.html">
+                            <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal/{{model.journal._id}}">
                                 <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
                         </div>
@@ -84,28 +81,27 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <label for="location">Location</label>
-            <input id="location"
-                placeholder="Temecula"
-                class="form-control"/>
-            <label for="station">Station</label>
-            <input id="station"
-                placeholder="SDTEC"
-                class="form-control"/>
-            <label for="date">Date</label>
-            <input id="date"
+            <label for="journalTimeStamp">Date</label>
+            <input id="journalTimeStamp"
+                ng-model="model.journal.journalTimeStamp"
                 placeholder="07/13/2017 10:01am"
                 class="form-control"/>
             <label for="topic">Topic</label>
             <input id="topic"
+                ng-model="model.journal.topic"
                 placeholder="Not as warm as predicted"
                 class="form-control"/>
             <label for="entry">Entry</label>
             <textarea id="entry"
+                ng-model="model.journal.entry"
                 placeholder="Forecast was for 103, but it only made it to 98"
                 rows="5"
-                class="form-control"></textarea>
-            <a href="journal-list.html" class="btn btn-block btn-danger">Delete</a>
+                class="form-control">
+            </textarea>
+            <a ng-click="model.createJournal(model.journal)"
+                class="btn btn-block btn-primary">
+                    Create
+            </a>
         </div>
     </div>
 </div>
@@ -158,6 +154,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

@@ -1,41 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Weather Journal</title>
-
-    <!--CSS for jQuery UI-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-    <!--CDN for jQuery and jQuery UI-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <link href="../css/style.css" rel="stylesheet"/>
-
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-padding-left-15px wj-theme">
     <div class="container-fluid">
         <div class="navbar-header wj-navbar-header">
             <div class="">
-                <a href="../home.html" class="navbar-link wj-navbar-back pull-left">
+                <a href="#!/" class="navbar-link wj-navbar-back pull-left">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="navbar-brand" href="../home.html">
+                <a class="navbar-brand" href="#!/">
                     Analytics
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="../home.html" class="navbar-link">
+                    <a href="#!/" class="navbar-link">
                         <span class="glyphicon glyphicon-ok">
                         </span>
                     </a>
@@ -83,20 +57,20 @@
     </div>
 </div>
 
-
 <div class="container-fluid">
     <div class="">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="analytic in model.analytics"
+                class="list-group-item">
                 <div class="row">
                     <div class="">
-                        At or above: <b>100</b>
+                        At or above: <b>{{analytic.atOrAbove}}</b>
                     </div>
-                    <div class="">
-                        Duration: <b>Greater than 1 day</b>
+                    <div class="" >
+                        Duration <b>{{analytic.duration}}</b>
                     </div>
-                    <div class="">
-                        Span: <b>August-September, 2017</b>
+                    <div class="" >
+                        Span: <b>{{analytic.span}}</b>
                     </div>
                 </div>
             </li>
@@ -261,6 +235,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

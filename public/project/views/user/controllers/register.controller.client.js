@@ -3,38 +3,38 @@
         .module('WeatherJournal')
         .controller('registerController', registerController);
 
-    function registerController($location,userService) {
+    function registerController($location, userService) {
 
         var model = this;
+
         model.register = register;
 
         function register(username, password, verifyPassword) {
 
+            // if username is null OR is empty string OR undefined
             if(username === null || username === '' || typeof username === 'undefined'){
-                model.error = "Username field cannot be empty.";
+                model.message = "Username field cannot be empty.";
                 return;
             }
 
             if(password === null || typeof password === 'undefined'){
-                model.error = "Password field cannot be empty.";
+                model.message = "Password field cannot be empty.";
                 return;
             }
 
             if(verifyPassword === null || typeof verifyPassword === 'undefined'){
-                model.error = "Verify Password field cannot be empty.";
+                model.message = "Verify Password field cannot be empty.";
                 return;
             }
 
             if(password!==verifyPassword){
-                register.error = "Passwords must match.";
+                register.message = "Passwords must match.";
                 return;
             }
 
             var found = userService.findUserByUsername(username);
-
-            if (found!==null) {
-                //model.message = "Welcome " + username;
-                model.error = "Username not available. Please choose a different username.";
+            if (found !== null) {
+                model.message = "Username not available. Please choose a different username.";
             }
             else {
                 var newUser = {
@@ -42,7 +42,7 @@
                     password : password
                 };
                 newUser = userService.createUser(newUser);
-                $location.url('/');  // + newUser._id
+                $location.url('/user/' + newUser._id);
             }
         }
     }

@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Weather Journal</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top wj-theme">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 hidden-xs">
-                <a href="location-list.html" class="navbar-link wj-navbar-back pull-left">
+                <a href="#!/user/{{model.userId}}/location" class="navbar-link wj-navbar-back pull-left">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#!/user/{{model.userId}}/location">
                     Locations
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="location-new.html" class="navbar-link">
+                    <a href="#!/user/{{model.userId}}/location/new" class="navbar-link">
                         <span class="glyphicon glyphicon-plus">
                         </span>
                     </a>
+                </p>
             </div>
             <div class="col-sm-8 col-xs-12">
-                <a href="location-list.html" class="navbar-link wj-navbar-back pull-left visible-xs">
+                <a href="#!/user/{{model.userId}}/location"
+                    class="navbar-link wj-navbar-back pull-left visible-xs">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 <p class="navbar-text pull-left">New Location</p>
                 <p class="navbar-text pull-right">
-                    <a href="location-list.html" class="navbar-link">
+                    <a href="#!/user/{{model.userId}}/location"
+                        class="navbar-link">
                         <span class="glyphicon glyphicon-ok ">
                         </span>
                     </a>
@@ -45,38 +37,39 @@
     <div class="row">
         <div class="col-xs-4 hidden-xs">
             <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item active">
                     <div class="row">
-                        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
-                            <a href="../station/station-list.html">El Paso</a>
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
+                            Location Name
                         </div>
                         <div class ="col-lg-3 visible-lg">
-                            Texas
+                            State
                         </div>
                         <div class = "col-md-3 hidden-sm hidden-xs" >
-                            79925
+                            Zip Code
                         </div>
                         <div class="col-xs-1">
-                            <a href="location-edit.html">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            <a href="">
                             </a>
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
+                <li  ng-repeat="location in model.locations" class="list-group-item">
                     <div class="row">
-                        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
-                            <a href="../station/station-list.html">Temecula</a>
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
+                            <a href="#!/user/{{model.userId}}/location/{{location._id}}/station">
+                                {{location.locationName}}
+                            </a>
                         </div>
                         <div class ="col-lg-3 visible-lg">
-                            California
+                            <b>{{location.state}}</b>
                         </div>
                         <div class = "col-md-3 hidden-sm hidden-xs" >
-                            92592
+                            <b>{{location.zipcode}}</b>
                         </div>
                         <div class="col-xs-1">
-                            <a href="location-edit.html">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            <a href="#!/user/{{model.userId}}/location/{{location._id}}">
+                                <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
                         </div>
                     </div>
@@ -84,19 +77,25 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <label for="location">Location</label>
-            <input id="location"
+            <label for="locationName">Location</label>
+            <input id="locationName"
+                ng-model="model.location.locationName"
                 placeholder="Los Angeles"
                 class="form-control"/>
             <label for="state">State</label>
             <input id="state"
+                ng-model="model.location.state"
                 placeholder="California"
                 class="form-control"/>
             <label for="zipcode">Zip</label>
             <input id="zipcode"
+                ng-model="model.location.zipcode"
                 placeholder="90025"
                 class="form-control"/>
-            <a href="location-list.html" class="btn btn-block btn-danger">Delete</a>
+            <a ng-click="model.createLocation(model.location)"
+                class="btn btn-block btn-primary">
+                    Create
+            </a>
         </div>
     </div>
 </div>
@@ -105,21 +104,21 @@
     <div class="container-fluid">
         <div class="section group wj-footer-vertical-center">
             <div class="col span_1_of_6">
-                <a href="../home.html">
+                <a href="#!/">
                     <span
                         class="glyphicon glyphicon-home wj-theme">
                     </span>
                 </a>
             </div>
             <div class="col span_1_of_6">
-                <a href="../location/location-list.html">
+                <a href="#!/user/{{model.userId}}/location">
                     <span
                         class="glyphicon glyphicon-globe wj-theme">
                     </span>
                 </a>
             </div>
             <div class="col span_1_of_6">
-                <a href="../station/station-list.html">
+                <a href="#!/user/{{model.userId}}/location/{{location._id}}/station">
                     <span
                         class="glyphicon glyphicon-cloud wj-theme">
                     </span>
