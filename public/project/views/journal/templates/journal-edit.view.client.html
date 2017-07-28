@@ -27,7 +27,7 @@
                     Edit Journal
                 </p>
                 <p class="navbar-text pull-right">
-                    <a href="#!/user/{{model.userId}}/location/{{model.locationId}}/station/{{model.stationId}}/journal"
+                    <a ng-click="model.updateJournal()"
                         class="navbar-link">
                         <span class="glyphicon glyphicon-ok">
                         </span>
@@ -106,4 +106,4 @@
     </div>
 </div>
 
-<div ng-include="'views/common/footer.view.client.html'"></div>
+<div ng-include="'views/common/footer-all.view.client.html'"></div>

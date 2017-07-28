@@ -12,7 +12,16 @@
         model.stationId = $routeParams['stationId'];
 
         function init() {
-            model.journals = journalService.findAllJournalsForStation(model.stationId);
+            journalService
+                .findJournalsByStationId(model.stationId)
+                .then(
+                    function successCallback(journals) {
+                        model.journals = journals;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve station journals."
+                    }
+                );
         }
         init();
     }

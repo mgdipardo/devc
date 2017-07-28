@@ -3,26 +3,21 @@
         .module('WeatherJournal')
         .factory('analyticService', analyticService);
 
-    function analyticService() {
-
-        var analytics = [
-            { "_id": "9666", "stationId": "404", "atOrAbove": "100.0", "duration": "Greater than 1 day", "span": "August-September, 2017" }
-        ];
+    function analyticService($http) {
 
         var api = {
-            findAllAnalyticsForStation:findAllAnalyticsForStation
-            //findAllHistoryForDate:findAllHistoryForDate
+            findAnalyticsByStationId:findAnalyticsByStationId
         };
         return api;
 
-        function findAllAnalyticsForStation(stationId) {
-            var stationAnalytics = [];
-            for(var j in analytics) {
-                if(analytics[j].stationId === stationId) {
-                    stationAnalytics.push(analytics[j]);
-                }
-            }
-            return stationAnalytics;
+        function findAnalyticsByStationId(stationId) {
+            return $http
+                .get("/api/station/" + stationId + "/analytic")
+                .then(
+                    function (res) {
+                        return res.data;
+                    }
+                );
         }
     }
 })();

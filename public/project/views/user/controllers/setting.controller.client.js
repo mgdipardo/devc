@@ -10,17 +10,47 @@
         var model = this;
 
         model.userId = $routeParams['userId'];
-
+        model.deleteUser = deleteUser;
         model.updateUser = updateUser;
 
-        model.user = userService.findUserByUserId(model.userId);
+        function init() {
+            userService
+                .findUserById(model.userId)
+                .then(
+                    function successCallback(user) {
+                        model.user = user;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, unknown user request."
+                    }
+                );
+        }
+        init();
+
+        function deleteUser() {
+            userService
+                .deleteUser(model.userId)
+                .then(
+                    function successCallback(success){
+                        $location.url("/");
+                    },
+                    function errorCallback(err){
+                        model.error = "System error, the user cannot be removed."
+                    }
+                );
+        }
 
         function updateUser() {
-            var success = userService.updateUser(model.userId, model.user);
-            if(success)
-                $location.url('/');
-            else
-                model.message = "profile update error";
+            userService
+                .updateUser(model.userId, model.user)
+                .then(
+                    function successCallback(success){
+                        model.message = "Settings have been updated successfully."
+                    },
+                    function errorCallback(err){
+                        model.error = "System error, the settings cannot be updated."
+                    }
+                )
         }
     }
 })();

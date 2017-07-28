@@ -3,91 +3,82 @@
         .module('WeatherJournal')
         .factory('userService',userService)
 
-    function userService() {
-        var users = [
-            {_id: "614", username: "anne", password: "anne", firstName: "Anne", lastName: "Carson", defaultLocation: "Temecula", defaultStation: "", startDate: ""},
-            {_id: "613", username: "mike", password: "mike", firstName: "Mike", lastName: "DiPardo", defaultLocation: "El Paso", defaultStation: "SDTEC", startDate: "Current Date minus 1"},
-            {_id: "1218", username: "ben", password: "ben", firstName: "Ben", lastName: "DiPardo", defaultLocation: "", defaultStation: "", startDate: ""},
-        ];
+    function userService($http) {
 
         var api = {
-            findUserByUserId:findUserByUserId,
             findUserByCredentials:findUserByCredentials,
+            findUserById:findUserById,
             findUserByUsername:findUserByUsername,
             createUser:createUser,
+            deleteUser:deleteUser,
             updateUser:updateUser
         };
         return api;
 
-        function updateUser(userId, user){
-            var index = null;
-            for(var u in users) {
-                if(users[u]._id === userId) {
-                    index = u;
-                    break;
-                }
-            }
-
-            if(index !== null) {
-                users.splice(index, 1);
-                users.push(user);
-                return true;
-            }
-            return false;
+        function findUserByCredentials(username, password) {
+            return $http
+                .get("/api/user?username=" + username + "&password=" + password)
+                .then(
+                    function (res) {
+                        return res.data;
+                    }
+                );
         }
 
-        function createUser(user) {
-            if(findUserByUserId(user._id) === null) {
-                user._id = ""+Math.floor((Math.random() * 100) + 1);
-                user.created = new Date();
-                users.push(user);
-                return user;
-            }
-            return null;
+        function findUserById(userId) {
+            return $http
+                .get("/api/user/" + userId)
+                .then(
+                    function (res) {
+                        return res.data;
+                    }
+                );
         }
 
         function findUserByUsername(username) {
-            var user = users.find(function (user) {
-                return user.username === username;
-            });
-            if(typeof user === 'undefined') {
-                return null;
-            }
-            return user;
+            return $http
+                .get("/api/user?username=" + username)
+                .then(
+                    function (res) {
+                        return res.data;
+                    }
+                )
         }
 
-        function findUserByUserId(userId) {
-            for(var u in users){
-                if(users[u]._id === userId){
-                    return users[u];
-                }
-            }
-            return null;
-        }
-
-        function findUserByCredentials(username,password) {
-            for (u in users) {
-                var user = users[u];
-                if (user.username === username &&
-                    user.password === password) {
-                    return user;
-                }
-            }
-            return null;
+        function createUser(user) {
+            return $http
+                .post("/api/user", user)
+                .then(
+                    function (res) {
+                        return res.data;
+                    }
+                );
         }
 
         function deleteUser(userId) {
-            var index = null;
-            for(var u in users) {
-                if(users[u]._id === userId) {
-                    index = u;
-                    break;
-                }
-            }
+            return $http
+                .delete("/api/user/" + userId)
+                .then(
+                    function (res) {
+                        return true;
+                    },
+                    function (err) {
+                        return false;
+                    }
+                );
+        }
 
-            if(index !== null) {
-                users.splice(index, 1);
-            }
+        function updateUser(userId, user) {
+            return $http
+                .put("/api/user/" + userId, user)
+                .then(
+                    function (res) {
+                        return true;
+                    },
+                    function (err) {
+                        return false;
+                    }
+                );
         }
     }
 })();

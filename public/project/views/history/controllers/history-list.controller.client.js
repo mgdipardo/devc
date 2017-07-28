@@ -12,7 +12,16 @@
         model.stationId = $routeParams['stationId'];
 
         function init() {
-            model.histories = historyService.findAllHistoryForStation(model.stationId);
+            historyService
+                .findHistoriesByStationId(model.stationId)
+                .then(
+                    function successCallback(histories) {
+                        model.histories = histories;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve station histories."
+                    }
+                );
         }
         init();
     }

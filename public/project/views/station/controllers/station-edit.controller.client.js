@@ -13,22 +13,56 @@
         model.stationId = $routeParams['stationId'];
 
         function init() {
-            model.stations = stationService.findAllStationsForLocation(model.locationId);
-            model.station = stationService.findStationById(model.stationId);
+            stationService
+                .findStationsByLocationId(model.locationId)
+                .then(
+                    function successCallback(stations) {
+                        model.stations = stations;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve location stations."
+                    }
+                );
+            stationService
+                .findStationById(model.stationId)
+                .then(
+                    function successCallback(station) {
+                        model.station = station;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve station."
+                    }
+                );
         }
         init();
 
-        model.updateStation = updateStation;
         model.deleteStation = deleteStation;
-
-        function updateStation() {
-            stationService.updateStation(model.stationId, model.station);
-            $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station');
-        }
+        model.updateStation = updateStation;
 
         function deleteStation() {
-            stationService.deleteStation(model.stationId);
-            $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station');
+            stationService
+                .deleteStation(model.stationId)
+                .then(
+                    function successCallback(deleted) {
+                        $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station');
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot delete station."
+                    }
+                );
+        }
+
+        function updateStation() {
+            stationService
+                .updateStation(model.stationId, model.station)
+                .then(
+                    function successCallback(updated) {
+                        $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station');
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot update station."
+                    }
+                );
         }
     }
 })();

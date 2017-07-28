@@ -11,15 +11,32 @@
         model.userId = $routeParams['userId'];
 
         function init() {
-            model.locations = locationService.findAllLocationsForUser(model.userId);
+            locationService
+                .findLocationsByUser(model.userId)
+                .then(
+                    function successCallback(locations) {
+                        model.locations = locations;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve user locations."
+                    }
+                );
         }
         init();
 
         model.createLocation = createLocation;
 
         function createLocation(location) {
-            locationService.createLocation(model.userId, location);
-            $location.url('/user/' + model.userId + '/location');
+            locationService
+                .createLocation(model.userId, location)
+                .then(
+                    function successCallback(location) {
+                        $location.url('/user/' + model.userId + '/location');
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot create location."
+                    }
+                );
         }
     }
 })();

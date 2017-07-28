@@ -11,7 +11,16 @@
         model.locationId = $routeParams['locationId'];
 
         function init() {
-            model.stations = stationService.findAllStationsForLocation(model.locationId);
+            stationService
+                .findStationsByLocationId(model.locationId)
+                .then(
+                    function successCallback(stations) {
+                        model.stations = stations;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve location stations."
+                    }
+                );
         }
         init();
     }

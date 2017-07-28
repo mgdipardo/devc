@@ -10,7 +10,16 @@
         model.userId = $routeParams['userId'];
 
         function init() {
-            model.locations = locationService.findAllLocationsForUser(model.userId);
+            locationService
+                .findLocationsByUser(model.userId)
+                .then(
+                    function successCallback(locations) {
+                        model.locations = locations;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot fetch locations for user."
+                    }
+                );
         }
         init();
     }

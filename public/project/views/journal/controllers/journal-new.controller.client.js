@@ -13,16 +13,31 @@
         model.stationId = $routeParams['stationId'];
 
         function init() {
-            model.journals = journalService.findAllJournalsForStation(model.stationId);
-            model.journal = journalService.findJournalById(model.journalId);
+            journalService.findJournalsByStationId(model.stationId)
+            .then(
+                function successCallback(journals) {
+                    model.journals = journals;
+                },
+                function errorCallback(err) {
+                    model.error = "System error, cannot retrieve station journals."
+                }
+            );
         }
         init();
 
         model.createJournal = createJournal;
 
         function createJournal(journal) {
-            journalService.createJournal(model.stationId, journal);
-            $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station/' + model.stationId + '/journal');
+            journalService
+                .createJournal(model.stationId, journal)
+                .then(
+                    function successCallback(journal) {
+                        $location.url('/user/' + model.userId + '/location/' + model.locationId + '/station/' + model.stationId + '/journal');
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot create journal."
+                    }
+                );
         }
     }
 })();

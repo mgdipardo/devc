@@ -18,6 +18,12 @@
     </div>
 </nav>
 
+<div ng-include="'views/common/bulletin.view.client.html'"></div>
+
+<div class="container-fluid pull-right">
+    <b>{{model.user.firstName}} &nbsp; {{model.user.lastName}} </b>
+</div>
+
 <div class="container-fluid">
     <label for="defaultLocation">Default Location</label>
     <select ng-model="model.user.defaultLocation"
@@ -37,6 +43,10 @@
         <option>Current Date minus 1</option>
         <option>Current Date minus 2</option>
     </select>
+    <a class="btn btn-primary btn-block"
+       ng-click="model.deleteUser()">
+       Remove User
+    </a>
 </div>
 
-<div ng-include="'views/common/footer.view.client.html'"></div>
+<div ng-include="'views/common/footer-all.view.client.html'"></div>

@@ -11,9 +11,7 @@
     </div>
 </nav>
 
-<div ng-show="model.error" class="alert alert-danger">
-    {{model.error}}
-</div>
+<div ng-include="'views/common/bulletin.view.client.html'"></div>
 
 <div class="container-fluid">
     <label for="username">Username</label>
@@ -37,16 +35,4 @@
         href="#!/login">Cancel</a>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="section group wj-footer-vertical-center">
-            <div class="col span_1_of_6">
-                <a href="#!/">
-                    <span
-                        class="glyphicon glyphicon-home wj-theme">
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
-</nav>
+<div ng-include="'views/common/footer-home.view.client.html'"></div>

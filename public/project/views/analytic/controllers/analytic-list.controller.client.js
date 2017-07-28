@@ -12,7 +12,16 @@
         model.stationId = $routeParams['stationId'];
 
         function init() {
-            model.analytics = analyticService.findAllAnalyticsForStation(model.stationId);
+            analyticService
+                .findAnalyticsByStationId(model.stationId)
+                .then(
+                    function successCallback(analytics) {
+                        model.analytics = analytics;
+                    },
+                    function errorCallback(err) {
+                        model.error = "System error, cannot retrieve station analytics."
+                    }
+                );
         }
         init();
     }
