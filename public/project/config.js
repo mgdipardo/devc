@@ -1,12 +1,12 @@
 (function () {
     angular
-        .module('WeatherJournal')
+        .module("WeatherJournal")
         .config(configuration);
 
     function configuration($routeProvider) {
         $routeProvider
-            .when('/',{
-                templateUrl:'home.html'
+            .when("/",{
+                templateUrl:"home.html"
             })
     }
 

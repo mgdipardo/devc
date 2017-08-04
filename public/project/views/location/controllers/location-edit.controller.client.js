@@ -1,37 +1,35 @@
 (function () {
     angular
-        .module('WeatherJournal')
-        .controller('locationEditController', locationEditController);
+        .module("WeatherJournal")
+        .controller("locationEditController", locationEditController);
 
     function locationEditController($routeParams,
                                     $location,
                                     locationService) {
         var model = this;
 
-        model.userId = $routeParams['userId'];
-        model.locationId = $routeParams['locationId'];
+        model.userId = $routeParams["userId"];
+        model.locationId = $routeParams["locationId"];
 
         function init() {
             locationService
                 .findLocationsByUser(model.userId)
-                .then(
-                    function successCallback(locations) {
-                        model.locations = locations;
-                    },
-                    function errorCallback(err) {
-                        model.error = "System error, cannot retrieve user locations."
-                    }
-                );
+                .then(successCallbackList, errorCallbackList);
+            function successCallbackList(locations) {
+                model.locations = locations;
+            }
+            function errorCallbackList(err) {
+                model.error = "System error, cannot retrieve user locations."
+            }
             locationService
                 .findLocationById(model.locationId)
-                .then(
-                    function successCallback(location) {
-                        model.location = location;
-                    },
-                    function errorCallback(err) {
-                        model.error = "System error, cannot retrieve location."
-                    }
-                );
+                .then(successCallbackOne, errorCallbackOne);
+            function successCallbackOne(location) {
+                model.location = location;
+            }
+            function errorCallbackOne(err) {
+                model.error = "System error, cannot retrieve location."
+            }
         }
         init();
 
@@ -41,27 +39,25 @@
         function deleteLocation() {
             locationService
                 .deleteLocation(model.locationId)
-                .then(
-                    function successCallback(deleted) {
-                        $location.url('/user/' + model.userId + '/location');
-                    },
-                    function errorCallback(err) {
-                        model.error = "System error, cannot delete location."
-                    }
-                );
+                .then(successCallback, errorCallback);
+            function successCallback(deleted) {
+                $location.url("/user/" + model.userId + "/location");
+            }
+            function errorCallback(err) {
+                model.error = "System error, cannot delete location."
+            }
         }
 
         function updateLocation() {
             locationService
                 .updateLocation(model.locationId, model.location)
-                .then(
-                    function successCallback(updated) {
-                        $location.url('/user/' + model.userId + '/location');
-                    },
-                    function errorCallback(err) {
-                        model.error = "System error, cannot update location."
-                    }
-                );
+                .then(successCallback, errorCallback);
+            function successCallback(updated) {
+                $location.url("/user/" + model.userId + "/location");
+            }
+            function errorCallback(err) {
+                model.error = "System error, cannot update location."
+            }
         }
     }
 })();

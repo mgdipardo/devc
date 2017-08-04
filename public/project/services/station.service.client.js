@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('WeatherJournal')
-        .factory('stationService', stationService);
+        .module("WeatherJournal")
+        .factory("stationService", stationService);
 
     function stationService($http) {
 
@@ -14,60 +14,44 @@
         };
         return api;
 
-        function createStation(locationId, station) {
-            return $http
-                .post("/api/location/" + locationId + "/station", station)
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+        function createStation(locationId, newStation) {
+            var url = "/wxj/api/location/" + locationId + "/station", newStation;
+            return $http.post(url, newStation)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function deleteStation(stationId) {
-            return $http
-                .delete("/api/station/" + stationId)
-                .then(
-                    function (res) {
-                        return true;
-                    },
-                    function (err) {
-                        return false;
-                    }
-                );
+            var url = "/wxj/api/station/" + stationId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findStationById(stationId) {
-            return $http
-                .get("/api/station/" + stationId)
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+            var url = "/wxj/api/station/" + stationId;
+            return $http.get(url)
+                .then(function (response) {
+                   return response.data;
+                });
         }
 
         function findStationsByLocationId(locationId) {
-            return $http
-                .get("/api/location/" + locationId + "/station")
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+            var url = "/wxj/api/location/" + locationId + "/station";
+            return $http.get(url)
+                .then(function (response) {
+                   return response.data;
+                });
         }
 
-        function updateStation(stationId, station) {
-            return $http
-                .put("/api/station/" + stationId, station)
-                .then(
-                    function (res) {
-                        return true;
-                    },
-                    function (err) {
-                        return false;
-                    }
-                );
+        function updateStation(stationId, newStationValues) {
+            var url = "/wxj/api/station/" + stationId, newStationValues;
+            return $http.put(url, newStationValues)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

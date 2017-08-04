@@ -63,7 +63,7 @@
                     class="list-group-item">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
-                            <b>{{journal.journalTimeStamp}}</b>
+                            <b>{{journal.dateCreated | date : "short"}}</b>
                         </div>
                         <div class="col-lg-3 visible-lg">
                             <b>{{journal.topic}}</b>
@@ -81,9 +81,10 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <label for="journalTimeStamp">Date</label>
-            <input id="journalTimeStamp"
-                ng-model="model.journal.journalTimeStamp"
+            <div ng-include="'views/common/bulletin.view.client.html'"></div>
+            <label for="dateCreated">Date</label>
+            <input id="dateCreated"
+                ng-model="model.journal.dateCreated"
                 placeholder="07/13/2017 10:01am"
                 class="form-control"/>
             <label for="topic">Topic</label>

@@ -2,7 +2,7 @@
     angular
         .module("TestApp", [])
         .controller("TestController", TestController)
-        .filter('reverse', function() {
+        .filter("reverse", function() {
             return function(items) {
                 return items.slice().reverse();
             };

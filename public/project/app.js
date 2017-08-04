@@ -1,4 +1,4 @@
 (function () {
     angular
-        .module('WeatherJournal',['ngRoute'])
+        .module("WeatherJournal",["ngRoute"])
 })();

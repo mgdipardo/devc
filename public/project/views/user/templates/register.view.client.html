@@ -11,9 +11,8 @@
     </div>
 </nav>
 
-<div ng-include="'views/common/bulletin.view.client.html'"></div>
-
 <div class="container-fluid">
+    <div ng-include="'views/common/bulletin.view.client.html'"></div>
     <label for="username">Username</label>
     <input type="text"
         ng-model="username"
@@ -29,8 +28,23 @@
         ng-model="verifyPassword"
         class="form-control"
         placeholder="verify password"/>
+    <label for="firstName">First Name</label>
+    <input type="text"
+        ng-model="firstName"
+        class="form-control"
+        placeholder="Anne"/>
+    <label for="lastName">Last Name</label>
+    <input type="text"
+        ng-model="lastName"
+        class="form-control"
+        placeholder="Carlson"/>
+    <label for="email">Email</label>
+    <input type="email"
+        ng-model="email"
+        class="form-control"
+        placeholder="anne.carlson@gmail.com"/>
     <a class="btn btn-primary btn-block"
-        ng-click="model.register(username,password,verifyPassword)">Register</a>
+        ng-click="model.register(username,password,verifyPassword,firstName,lastName,email)">Register</a>
     <a class="btn btn-primary btn-block"
         href="#!/login">Cancel</a>
 </div>

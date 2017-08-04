@@ -54,7 +54,8 @@
                         </div>
                     </div>
                 </li>
-                <li  ng-repeat="location in model.locations" class="list-group-item">
+                <li  ng-repeat="location in model.locations"
+                    class="list-group-item">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-11 col-xs-10">
                             <a href="#!/user/{{model.userId}}/location/{{location._id}}/station">
@@ -77,6 +78,7 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
+            <div ng-include="'views/common/bulletin.view.client.html'"></div>
             <label for="locationName">Location</label>
             <input id="locationName"
                 ng-model="model.location.locationName"

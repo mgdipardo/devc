@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('WeatherJournal')
-        .factory('locationService', locationService);
+        .module("WeatherJournal")
+        .factory("locationService", locationService);
 
     function locationService($http) {
 
@@ -14,60 +14,44 @@
         };
         return api;
 
-        function createLocation(userId, location) {
-            return $http
-                .post("/api/user/" + userId + "/location", location)
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+        function createLocation(userId, newLocation) {
+            var url = "/wxj/api/user/" + userId + "/location";
+            return $http.post(url, newLocation)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function deleteLocation(locationId) {
-            return $http
-                .delete("/api/location/" + locationId)
-                .then(
-                    function (res) {
-                        return true;
-                    },
-                    function (err) {
-                        return false;
-                    }
-                );
+            var url = "/wxj/api/location/" + locationId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findLocationById(locationId) {
-            return $http
-                .get("/api/location/" + locationId)
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+            var url = "/wxj/api/location/" + locationId;
+            return $http.get(url)
+                .then(function (response) {
+                   return response.data;
+                });
         }
 
         function findLocationsByUser(userId) {
-            return $http
-                .get("/api/user/" + userId + "/location")
-                .then(
-                    function (res) {
-                        return res.data;
-                    }
-                );
+            var url = "/wxj/api/user/" + userId + "/location";
+            return $http.get(url)
+                .then(function (response) {
+                   return response.data;
+                });
         }
 
-        function updateLocation(locationId, location) {
-            return $http
-                .put("/api/location/" + locationId, location)
-                .then(
-                    function (res) {
-                        return true;
-                    },
-                    function (err) {
-                        return false;
-                    }
-                );
+        function updateLocation(locationId, newLocationValues) {
+            var url = "/wxj/api/location/" + locationId;
+            return $http.put(url, newLocationValues)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

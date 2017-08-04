@@ -18,6 +18,7 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-include="'views/common/bulletin.view.client.html'"></div>
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
@@ -49,6 +50,12 @@
                 <div class = "col-md-3 hidden-sm hidden-xs" >
                     <b>{{location.zipcode}}</b>
                 </div>
+                <!-- could display username from the user collection with: -->
+                <!-- {{location._user.username}} -->
+                <!-- See location.model.server.js for description. -->
+                  <!--  -->
+                <!-- Also, to display date created it would be: -->
+                <!-- {{location.dateCreated | date : "short"}} -->
                 <div class="col-xs-1">
                     <a href="#!/user/{{model.userId}}/location/{{location._id}}">
                         <span class="glyphicon glyphicon-pencil pull-right"></span>

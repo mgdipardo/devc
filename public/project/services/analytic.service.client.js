@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('WeatherJournal')
-        .factory('analyticService', analyticService);
+        .module("WeatherJournal")
+        .factory("analyticService", analyticService);
 
     function analyticService($http) {
 
@@ -12,7 +12,7 @@
 
         function findAnalyticsByStationId(stationId) {
             return $http
-                .get("/api/station/" + stationId + "/analytic")
+                .get("/wxj/api/station/" + stationId + "/analytic")
                 .then(
                     function (res) {
                         return res.data;

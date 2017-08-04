@@ -18,13 +18,12 @@
     </div>
 </nav>
 
-<div ng-include="'views/common/bulletin.view.client.html'"></div>
-
 <div class="container-fluid pull-right">
     <b>{{model.user.firstName}} &nbsp; {{model.user.lastName}} </b>
 </div>
 
 <div class="container-fluid">
+    <div ng-include="'views/common/bulletin.view.client.html'"></div>
     <label for="defaultLocation">Default Location</label>
     <select ng-model="model.user.defaultLocation"
         class="form-control">
@@ -37,8 +36,8 @@
         <option>KF70</option>
         <option>SDTEC</option>
     </select>
-    <label for="startDate">Start Date</label>
-    <select ng-model="model.user.startDate"
+    <label for="defaultStartMethod">History Start Date Method</label>
+    <select ng-model="model.user.defaultStartMethod"
         class="form-control">
         <option>Current Date minus 1</option>
         <option>Current Date minus 2</option>
